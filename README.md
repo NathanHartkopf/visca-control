@@ -1,5 +1,5 @@
 # visca-control
-A simple,JS class for open-loop control of Tenveo Brand VISCA protocol cameras
+A simple class for open-loop control of Tenveo Brand VISCA protocol cameras.
 
 Currently has:
 * Absolute and Relative Pan/Tilt Control
