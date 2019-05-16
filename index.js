@@ -57,7 +57,7 @@ var moveController = /** @class */ (function () {
     return moveController;
 }());
 var Camera = /** @class */ (function () {
-    function Camera() {
+    function Camera(serialport) {
         var _this = this;
         this.panTiltAbsolute = function (panLocation, tiltLocation) {
             _this._absControl.move(panLocation, tiltLocation);
@@ -66,7 +66,7 @@ var Camera = /** @class */ (function () {
             _this._relControl.move(panDistance, tiltDistance);
         };
         this.online = false;
-        this.port = new SerialPort('/dev/ttyUSB0', {
+        this.port = new SerialPort(serialport, {
             baudRate: 9600
         });
         this._absControl = new moveController("absolute", this.port);
