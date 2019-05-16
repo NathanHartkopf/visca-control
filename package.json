@@ -1,0 +1,22 @@
+{
+    "name": "visca-control",
+    "version": "1.0.0",
+    "description": "A simple, open-loop class for controlling Tenveo Brand VISCA protocol cameras",
+    "author": {
+        "name": "Nathan Hartkopf",
+        "email": "nathan@NathanHartkopf.com",
+        "url": "http://NathanHartkopf.com"
+    },
+    "main": "src/index.js",
+    "private": true,
+    "scripts": {
+        "build": "tsc *.ts",
+    	"test": "node example/backAndForth10.js"
+    },
+    "dependencies": {
+        "serialport": "*"
+    },
+    "devDependencies": {
+        "typescript": "*"
+    }
+}
