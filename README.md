@@ -6,11 +6,14 @@ Features:
 
 USAGE:
 ```javascript
-const Camera = require('visca-control')
+//ES5
+const Camera = require('visca-control').default
+//ES6
+import Camera from 'visca-control'//ES6
 
 const tenveo = new Camera('/dev/ttyUSB0')
 
-tenveo.panTiltAbsolute(10,0)
+tenveo.panTiltRelative(10,0)
 ```
 
 WIP:
