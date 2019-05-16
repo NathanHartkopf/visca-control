@@ -10,7 +10,7 @@
     "main": "src/index.js",
     "private": true,
     "scripts": {
-        "build": "tsc *.ts",
+        "build": "tsc src/*.ts; mv -f src/*.js ./",
     	"test": "node example/backAndForth10.js"
     },
     "dependencies": {
