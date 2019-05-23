@@ -17,7 +17,7 @@ function writeToPort(data, port) {
 var degCalc = /** @class */ (function () {
     function degCalc() {
     }
-    degCalc.prototype.calc = function (degrees, padding) {
+    degCalc.calc = function (degrees, padding) {
         var value = 0;
         if (degrees < 0) {
             if (degrees > -360 && degrees < -1) {
@@ -32,10 +32,10 @@ var degCalc = /** @class */ (function () {
         var hex = value.toString(16);
         return hex.padStart(padding, '0').split('').map(function (x) { return "0" + x; });
     };
-    degCalc.prototype.pan = function (degrees) {
+    degCalc.pan = function (degrees) {
         return this.calc(degrees, 5);
     };
-    degCalc.prototype.tilt = function (degrees) {
+    degCalc.tilt = function (degrees) {
         return this.calc(degrees, 4);
     };
     return degCalc;
@@ -49,9 +49,8 @@ var moveController = /** @class */ (function () {
     moveController.prototype.move = function (p, t) {
         var address = codes.address, type = codes.type, catagory = codes.catagory, absolute = codes.absolute, relative = codes.relative;
         var _a = this, moveType = _a.moveType, speed = _a.speed;
-        var calc = new degCalc();
-        var pan = calc.pan(p);
-        var tilt = calc.tilt(t);
+        var pan = degCalc.pan(p);
+        var tilt = degCalc.tilt(t);
         writeToPort([address, type, catagory, moveType, speed].concat(pan, tilt), this.port);
     };
     return moveController;

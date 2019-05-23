@@ -15,7 +15,7 @@ function writeToPort(data: any, port: any) {
 }
 
 class degCalc {
-    calc(degrees: number, padding: number) {
+    static calc(degrees: number, padding: number) {
         let value: number = 0
         if (degrees < 0) {
             if (degrees > -360 && degrees < -1) {
@@ -29,10 +29,10 @@ class degCalc {
         let hex = value.toString(16)
         return hex.padStart(padding, '0').split('').map(x => `0${x}`)
     }
-    pan(degrees: number): Array < any > {
+    static pan(degrees: number): Array < any > {
         return this.calc(degrees, 5)
     }
-    tilt(degrees: number): Array < any > {
+    static tilt(degrees: number): Array < any > {
         return this.calc(degrees, 4)
     }
 }
@@ -58,9 +58,8 @@ class moveController {
             moveType,
             speed
         } = this
-        const calc = new degCalc()
-        let pan: Array < string > = calc.pan(p)
-        let tilt: Array < string > = calc.tilt(t)
+        let pan: Array<string> = degCalc.pan(p)
+        let tilt: Array<string> = degCalc.tilt(t)
         writeToPort([address, type, catagory, moveType, speed, ...pan, ...tilt], this.port)
     }
 }
