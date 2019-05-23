@@ -8,7 +8,7 @@
         "url": "http://NathanHartkopf.com"
     },
     "main": "src/index.js",
-    "private": true,
+    "private": false,
     "scripts": {
         "build": "tsc src/*.ts; mv -f src/*.js ./",
     	"test": "node example/backAndForth10.js"
@@ -18,5 +18,6 @@
     },
     "devDependencies": {
         "typescript": "*"
-    }
+    },
+    "repository": "github:NathanHartkopf/visca-control"
 }
