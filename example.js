@@ -1,7 +1,6 @@
 "use strict";
 exports.__esModule = true;
 var index_1 = require("./index");
-//Camera connected to VISCA serial link via USB-to-Serial adapter on ttyUSB0
 var PTZ = new index_1["default"]('/dev/ttyUSB0');
 var count = 0;
 var timer = setInterval(function () {

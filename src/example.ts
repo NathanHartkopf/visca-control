@@ -1,6 +1,4 @@
 import Camera from './index';
-
-//Camera connected to VISCA serial link via USB-to-Serial adapter on ttyUSB0
 const PTZ = new Camera('/dev/ttyUSB0');
 let count = 0
 

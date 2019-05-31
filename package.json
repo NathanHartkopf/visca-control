@@ -1,6 +1,6 @@
 {
     "name": "visca-control",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "A simple class for open-loop control of Tenveo Brand VISCA protocol cameras.",
     "author": {
         "name": "Nathan Hartkopf",

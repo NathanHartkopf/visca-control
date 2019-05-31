@@ -1,12 +1,12 @@
 "use strict";
 exports.__esModule = true;
-var SerialPort = require("serialport");
+var SerialPort = require('serialport');
 var codes = {
-    address: "81",
-    type: "01",
-    catagory: "06",
-    absolute: "02",
-    relative: "03"
+    "address": "81",
+    "type": "01",
+    "catagory": "06",
+    "absolute": "02",
+    "relative": "03"
 };
 function writeToPort(data, port) {
     var intArray = data.map(function (x) { return parseInt(x, 16); });

@@ -1,14 +1,17 @@
-import * as SerialPort from "serialport";
-const codes = {
-    address: "81",
-    type: "01",
-    catagory: "06",
-    absolute: "02",
-    relative: "03"
+const SerialPort = require('serialport')
+
+const codes: {
+    [index: string]: string
+} = {
+    "address": "81",
+    "type": "01",
+    "catagory": "06",
+    "absolute": "02",
+    "relative": "03"
 }
 
 function writeToPort(data: any, port: any) {
-    const intArray = data.map(x => parseInt(x, 16))
+    const intArray = data.map((x: string) => parseInt(x, 16))
     const buf = Buffer.from(intArray, 16)
     port.write(buf)
     port.write(String.fromCharCode(255))
@@ -58,8 +61,8 @@ class moveController {
             moveType,
             speed
         } = this
-        let pan: Array<string> = degCalc.pan(p)
-        let tilt: Array<string> = degCalc.tilt(t)
+        let pan: Array < string > = degCalc.pan(p)
+        let tilt: Array < string > = degCalc.tilt(t)
         writeToPort([address, type, catagory, moveType, speed, ...pan, ...tilt], this.port)
     }
 }
@@ -78,7 +81,7 @@ class Camera {
         this._relControl = new moveController("relative", this.port)
         this.online = true
     }
-    
+
     panTiltAbsolute = (panLocation: number, tiltLocation: number) => {
         this._absControl.move(panLocation, tiltLocation)
     }
